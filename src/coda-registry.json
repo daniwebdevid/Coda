@@ -1,0 +1,16 @@
+{
+  "packages": {
+    "jansson": {
+      "url": "https://github.com/akheron/jansson.git",
+      "description": "A C library for JSON data"
+    },
+    "cJSON": {
+      "url": "https://github.com/DaveGamble/cJSON.git",
+      "description": "A lightweight JSON library for C"
+    },
+    "rapidjson": {
+      "url": "https://github.com/Tencent/rapidjson.git",
+      "description": "A fast JSON parser and generator for C++"
+    }
+  }
+}
