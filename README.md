@@ -1,43 +1,50 @@
-Coda Build Tool
+# Coda Build Tool
 
-Coda adalah build tool sederhana yang dirancang untuk proyek C modular. Alat ini menggunakan pendekatan "Unity Build" untuk menyederhanakan proses kompilasi dan manajemen dependensi, sehingga Anda tidak perlu lagi berurusan dengan header atau makefile yang rumit.
-Fitur Utama
+Coda is a simple build tool designed for modular C projects. It uses a "Unity Build" approach to simplify the compilation process and dependency management, eliminating the need for complex headers or Makefiles.
 
-    Modularitas Sederhana: Menggabungkan beberapa file .c menjadi satu file tunggal untuk dikompilasi, menghilangkan kebutuhan untuk file .h yang terpisah.
+## Key Features
 
-    Manajemen Dependensi Otomatis: Menggunakan coda install untuk mengunduh dependensi dari repositori Git, serta memperbarui file coda.json secara otomatis.
+* **Simplified Modularity**: It combines multiple `.c` files into a single file for compilation, removing the need for separate `.h` files.
+* **Automatic Dependency Management**: Use `coda install` to download dependencies from Git repositories and automatically update the `coda.json` file.
+* **Easy Build Process**: Simply run `coda build` to compile the entire project.
+* **Real-time Change Detection (Experimental)**: It monitors source files to detect changes and rebuilds the project automatically.
 
-    Proses Build yang Mudah: Cukup jalankan satu perintah coda build untuk mengkompilasi seluruh proyek.
+## System Requirements
 
-    Deteksi Perubahan Real-time (Experimental): Mengawasi file sumber untuk mendeteksi perubahan dan melakukan rebuild secara otomatis.
+To build and use Coda, you need:
 
-Persyaratan Sistem
+* **Linux**: This project is designed specifically for a Linux environment.
+* **Git**: Required for managing dependencies.
+* **C Compiler**: `clang` or `gcc`.
+* **Jansson Library**: Needed to parse JSON files.
 
-Untuk membangun dan menggunakan Coda, Anda memerlukan:
+To install dependencies on Debian/Ubuntu-based systems, use the following command:
 
-    Linux: Proyek ini dirancang khusus untuk lingkungan Linux.
-
-    Git: Diperlukan untuk mengelola dependensi.
-
-    C Compiler: clang atau gcc.
-
-    Library Jansson: Diperlukan untuk mem-parsing file JSON.
-
-Untuk menginstal dependensi di sistem berbasis Debian/Ubuntu, gunakan perintah berikut:
-
+```bash
 sudo apt-get update
 sudo apt-get install build-essential clang git libjansson-dev
 
-Cara Membangun Coda
+```
 
-    Klon Repositori:
+## How to Build Coda
 
+1.  **Clone the Repository**:
+    
+    Bash
+    
+    ```
     git clone [https://github.com/nama-anda/coda.git](https://github.com/nama-anda/coda.git)
     cd coda
-
-    Kompilasi dari Kode Sumber:
-    Gunakan perintah clang untuk mengkompilasi tool Anda:
-
+    
+    ```
+    
+2.  Compile from Source:
+    
+    Use the clang command to compile your tool:
+    
+    Bash
+    
+    ```
     clang src/main.c \
           src/registry_data.c \
           src/build_engine/build_engine.c \
@@ -58,37 +65,63 @@ Cara Membangun Coda
           -I./src/fs_monitor/ \
           -ljansson \
           -Wall -Wextra
-
-    (Opsional) Pindahkan ke PATH Anda:
-    Untuk menjalankan coda dari direktori mana pun, pindahkan file executable ke direktori di PATH Anda.
-
+    
+    ```
+    
+3.  (Optional) Move to Your PATH:
+    
+    To run coda from any directory, move the executable file to a directory in your PATH.
+    
+    Bash
+    
+    ```
     sudo mv coda /usr/local/bin/
+    
+    ```
+    
 
-Cara Menggunakan Coda
+## How to Use Coda
 
-Setelah Anda membangun Coda, Anda dapat menggunakannya untuk proyek C baru.
+After building Coda, you can use it for your new C projects.
 
-    Inisialisasi Proyek Baru:
-
+1.  **Initialize a New Project**:
+    
+    Bash
+    
+    ```
     coda init
-
-    Ini akan membuat file coda.json di direktori proyek Anda.
-
-    Instal Dependensi:
-
-    coda install <nama_paket>
-
-    Contoh: coda install rapidjson
-
-    Bangun Proyek Anda:
-
+    
+    ```
+    
+    This command creates a `coda.json` file in your project directory.
+    
+2.  **Install Dependencies**:
+    
+    Bash
+    
+    ```
+    coda install <package_name>
+    
+    ```
+    
+    Example: `coda install rapidjson`
+    
+3.  **Build Your Project**:
+    
+    Bash
+    
+    ```
     coda build
+    
+    ```
+    
+    This command reads `coda.json`, compiles all source files, and generates an executable in `dist/`.
+    
 
-    Perintah ini akan membaca coda.json, mengkompilasi semua file sumber, dan menghasilkan executable di dist/.
+## Contributing
 
-Kontribusi
+This project is open-source. Contributions in the form of bug reports, pull requests, or new ideas are highly appreciated.
 
-Proyek ini bersifat open-source. Kontribusi dalam bentuk bug reports, pull requests, atau ide-ide baru sangat dihargai.
-Lisensi
+## License
 
-Proyek ini dilisensikan di bawah [Tipe Lisensi] - lihat file LICENSE untuk detailnya.
+This project is licensed under GPL - see the LICENSE file for details.
