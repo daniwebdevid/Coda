@@ -33,7 +33,7 @@ sudo apt-get install build-essential clang git libjansson-dev
     Bash
     
     ```
-    git clone [https://github.com/nama-anda/coda.git](https://github.com/nama-anda/coda.git)
+    git clone https://github.com/daniwebdevid/coda.git
     cd coda
     
     ```
