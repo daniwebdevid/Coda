@@ -2,7 +2,10 @@
 #include <string.h>
 #include <unistd.h>
 
-#include "init_cmd.h"
+// Include headers for all command functionalities
+// Note: We are using init_project_config() instead of init_project() 
+// due to the function naming in the implementation file.
+#include "init_cmd.h" 
 #include "build_engine.h"
 #include "install_cmd.h"
 #include "watch_cmd.h"
@@ -13,10 +16,10 @@
 static void print_usage() {
     fprintf(stderr, "Usage: coda <command> [arguments]\n");
     fprintf(stderr, "Commands:\n");
-    fprintf(stderr, "  init                  Initializes a new Coda project.\n");
-    fprintf(stderr, "  build                 Reads the project config and compiles.\n");
-    fprintf(stderr, "  install <package_name>  Downloads a dependency from the package registry.\n");
-    fprintf(stderr, "  watch                 Monitors source files and rebuilds automatically.\n");
+    fprintf(stderr, "  init             Initializes a new Coda project.\n");
+    fprintf(stderr, "  build            Reads the project config and compiles.\n");
+    fprintf(stderr, "  install <package_name> Downloads a dependency from the package registry.\n");
+    fprintf(stderr, "  watch            Monitors source files and rebuilds automatically.\n");
 }
 
 int main(int argc, char *argv[]) {
@@ -35,7 +38,8 @@ int main(int argc, char *argv[]) {
             print_usage();
             return 1;
         }
-        return init_project();
+        // FIX: Changed init_project() to the correct name, init_project_config()
+        return init_project_config();
     } else if (strcmp(command, "build") == 0) {
         if (argc != 2) {
             fprintf(stderr, "Error: 'build' command takes no arguments.\n");

@@ -8,11 +8,20 @@
  * @brief A structure to hold parsed project configuration data from coda.json.
  */
 typedef struct {
-    char *project_name;
+    // Basic configuration
+    const char *project_name;
+    const char *compiler;
+    const char *output_path;
+
+    // Core arrays
     const char **source_files;
-    const char **dependencies; // This will hold the key-value pairs
-    char *compiler;
-    char *output_path;
+    const char **dependencies;
+
+    // NEW ARRAYS FOR ADVANCED CONFIGURATION
+    const char **compiler_flags; // e.g., "-O2", "-std=c18"
+    const char **linker_flags;   // e.g., "-lm", "-lpthread"
+    const char **include_paths;  // e.g., "includes/", "modules/libyaml/include/"
+
 } ProjectConfig;
 
 /**

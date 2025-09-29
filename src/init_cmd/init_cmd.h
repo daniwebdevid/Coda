@@ -5,6 +5,6 @@
  * @brief Initializes a new Coda project by creating a directory structure and config files.
  * @return 0 on success, 1 on failure.
  */
-int init_project();
+int init_project_config(); 
 
 #endif // INIT_CMD_H
